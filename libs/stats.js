@@ -231,6 +231,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
 
                 for (var worker in coinStats.workers) {
                     coinStats.workers[worker].hashrateString = _this.getReadableHashRateString(shareMultiplier * coinStats.workers[worker].shares / portalConfig.website.stats.hashrateWindow);
+                    coinStats.workers[worker].hashrateSpecial = shareMultiplier * coinStats.workers[worker].shares / portalConfig.website.stats.hashrateWindow;
                 }
 
                 delete coinStats.hashrates;
