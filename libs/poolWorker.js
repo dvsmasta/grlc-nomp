@@ -135,33 +135,14 @@ module.exports = function(logger){
 
             var shareProcessor = new ShareProcessor(logger, poolOptions);
 
-            handlers.auth = function(port, workerName, password, authCallback){
-                if (poolOptions.validateWorkerUsername !== true)
-                    authCallback(true);
-                else {
-                    if (workerName.length === 40) {
-                        try {
-                            Buffer.from(workerName, 'hex');
-                            authCallback(true);
-                        }
-                        catch (e) {
-                            authCallback(false);
-                        }
-                    }
-                    else {
+             handlers.auth = function(port, workerName, password, authCallback){
+
                         pool.daemon.cmd('validateaddress', [workerName], function (results) {
                             var isValid = results.filter(function (r) {
-                                if(typeof r.response == "undefined") {
-                                  console.log("validateaddress failed:", r);
-                                  return true;
-                                }
-                                return r.response.isvalid;
+                                return r.response.isvalid
                             }).length > 0;
                             authCallback(isValid);
                         });
-                    }
-
-                }
             };
 
             handlers.share = function(isValidShare, isValidBlock, data){
@@ -171,7 +152,11 @@ module.exports = function(logger){
 
         var authorizeFN = function (ip, port, workerName, password, callback) {
             handlers.auth(port, workerName, password, function(authorized){
-
+                if(authorized){
+                    if(workerName.length !== 34){
+                         authorized = false;
+                    }
+                }
                 var authString = authorized ? 'Authorized' : 'Unauthorized ';
 
                 logger.debug(logSystem, logComponent, logSubCat, authString + ' ' + workerName + ':' + password + ' [' + ip + ']');
