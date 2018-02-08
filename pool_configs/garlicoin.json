@@ -8,7 +8,9 @@
     "address": "mvtv43LtsQSeyCaBBb8xRj5ZpNt75zDX21",
 
     "rewardRecipients": {
-        "mvtv43LtsQSeyCaBBb8xRj5ZpNt75zDX21": 5
+        "mvtv43LtsQSeyCaBBb8xRj5ZpNt75zDX21": 5,
+    "blockfindWallet": {
+        "": 0
     },
 
     "paymentProcessing": {
