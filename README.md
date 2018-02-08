@@ -161,6 +161,10 @@ a good pool operator. For starters be sure to read:
 
 #### 1) Downloading & Installing
 
+If you encounter error during multi-hash compile, run following:
+
+``` sudo apt-get install libgmp-dev ```
+
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
