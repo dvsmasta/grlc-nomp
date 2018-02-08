@@ -8,6 +8,11 @@ var os = require('os');
 
 var algos = require('stratum-pool/lib/algoProperties.js');
 
+const HASHRATES = ["H/s", "KH/s", "MH/s", "GH/s", "TH/s", "PH/s", "EH/s", "ZH/s", "YH/s"];
+
+function getBaseLog(x, y) {
+   return Math.log(y) / Math.log(x);
+}
 
 module.exports = function(logger, portalConfig, poolConfigs){
 
@@ -270,14 +275,13 @@ module.exports = function(logger, portalConfig, poolConfigs){
 
     };
 
-    this.getReadableHashRateString = function(hashrate){
-        var i = -1;
-        var byteUnits = [ ' KH', ' MH', ' GH', ' TH', ' PH' ];
-        do {
-            hashrate = hashrate / 1000;
-			i++;
-        } while (hashrate > 1000);
-        return hashrate.toFixed(2) + byteUnits[i];
-    };
+        this.getReadableHashRateString = function(hashrate) {
+        if (hashrate === 0) {
+            return "0H/s"
+        }
+        const i = Math.floor(getBaseLog(1000, hashrate));
+        const s = (hashrate / Math.pow(1000, i)).toFixed(2);
+        return s + HASHRATES[i]
+}
 
 };
