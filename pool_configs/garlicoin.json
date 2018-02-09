@@ -9,9 +9,9 @@
 
     "rewardRecipients": {
         "mgc4yxixAzqvWiJHLvmMY3hDYTNq5RwrYx": 0.5,
-    "blockfindWallet": {
-        "n28ZWD9c3ufKWELAT9RDUy9WyqTi89FV3n": 0.5
     },
+    "blockfindWallet": "n28ZWD9c3ufKWELAT9RDUy9WyqTi89FV3n": 0.5,
+    
 
     "paymentProcessing": {
         "enabled": true,
