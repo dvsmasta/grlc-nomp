@@ -111,7 +111,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
             }, true);
         },
         function (callback) {
-            daemon.cmd('getbalance', [], function (result) {
+            daemon.cmd('getbalance', "pool wallet", function (result) {
                 var wasICaught = false;
                 if (result.error) {
                     callback(true);
