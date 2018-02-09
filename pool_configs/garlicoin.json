@@ -3,7 +3,7 @@
     "coin": "garlicoin.json",
 
     "//": "Coinbase will let explorers know who mined the block, change this to your pool name",
-    "coinbase": "Kryptonite",
+    "coinbase": "Garlic Bread Pool",
 
     "address": "mryfy6ppakdKxat2jQ3P85tE53TXMhq9Un",
 
