@@ -5,12 +5,12 @@
     "//": "Coinbase will let explorers know who mined the block, change this to your pool name",
     "coinbase": "Kryptonite",
 
-    "address": "mvtv43LtsQSeyCaBBb8xRj5ZpNt75zDX21",
+    "address": "mryfy6ppakdKxat2jQ3P85tE53TXMhq9Un",
 
     "rewardRecipients": {
-        "mvtv43LtsQSeyCaBBb8xRj5ZpNt75zDX21": 5,
+        "mgc4yxixAzqvWiJHLvmMY3hDYTNq5RwrYx": 0.5,
     "blockfindWallet": {
-        "": 0
+        "n28ZWD9c3ufKWELAT9RDUy9WyqTi89FV3n": 0.5
     },
 
     "paymentProcessing": {
